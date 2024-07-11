@@ -1,0 +1,19 @@
+<div class="d-flex flex-column" style="height: calc(100vh - 128px);">
+    <h4>View {{device.deviceName}}</h4>
+    <hr>
+    <div class="d-flex flex-row-reverse gap-2">
+        <button type="button" class="btn btn-danger" (click)="onDelete(device.id)">Delete</button>
+        <button type="button" class="btn btn-success" (click)="onEdit(device.id)">Edit</button>
+        <button type="button" class="btn btn-primary" (click)="onBack()">Back</button>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 mt-2 g-2" style="overflow-y: auto; height: calc(100vh - 204px)">
+        <div class="col" *ngFor="let name of featureNames; let i=index">
+            <div class="card bg-secondary text-white">
+                <div class="card-body d-flex justify-content-between">
+                    <h6 class="card-title">{{featurePlacecholders[i]}}</h6>
+                    <p class="card-text">{{device[name]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

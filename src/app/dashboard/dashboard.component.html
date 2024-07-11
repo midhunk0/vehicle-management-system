@@ -1,0 +1,60 @@
+<!-- <div class="row p-4 gap-2">
+    <div class="col-md-2 list-group">
+        <a routerLink="dashboard" class="list-group-item bg-danger text-white" *ngIf="!create && !view; else another" role="button" (click)="onDashboard()">hello, {{username}}</a>
+        <ng-template #another><a routerLink="dashboard" class="list-group-item bg-dark text-white" role="button" (click)="onDashboard()">hello, {{username}}</a></ng-template>
+        <a routerLink="create-device" class="list-group-item bg-danger text-white" *ngIf="create; else createAnother" role="button" (click)="onCreate()">Create Device</a>
+        <ng-template #createAnother><a routerLink="create-device" class="list-group-item bg-dark text-white" role="button" (click)="onCreate()">Create Device</a></ng-template>
+        <a routerLink="view-device" class="list-group-item bg-danger text-white" *ngIf="view; else viewAnother" role="button" (click)="onView()">View Device</a>
+        <ng-template #viewAnother><a routerLink="view-device" class="list-group-item bg-dark text-white" role="button" (click)="onView()">View Device</a></ng-template>
+        <a routerLink="" class="list-group-item bg-dark text-white" role="button" (click)="onLogout()">Logout</a>
+
+        
+    </div>
+    <div class="col rounded-2 bg-dark p-4">
+        <div *ngIf="!create && !view" class="d-flex flex-column align-items-center justify-content-center" style="height: calc(100vh - 128px);">
+            <h4>Please select from the menu</h4>
+        </div>
+        <router-outlet *ngIf="view || create"></router-outlet>
+    </div>
+</div> -->
+    <!-- <button type="button" class="btn btn-primary" (click)="onDashboard()">User</button>
+    <button type="button" class="btn btn-primary" (click)="onCreate()">Create Device</button>
+    <button type="button" class="btn btn-primary" (click)="onView()">View Device</button>
+    <button type="submit" class="btn btn-danger" (click)="onLogout()">Logout</button> -->
+
+
+<!-- <div class="row p-4 gap-2">
+    <div class="col-md-2 list-group">
+        <a routerLink="dashboard" class="list-group-item text-white" [ngClass]="{ 'bg-danger': !create && !view, 'bg-dark ': create || view }" role="button" (click)="onDashboard()">hello, {{ username }}</a>
+        <a routerLink="create-device" class="list-group-item text-white" [ngClass]="{ 'bg-danger': create, 'bg-dark': !create }" role="button" (click)="onCreate()">Create Device</a>
+        <a routerLink="view-device" class="list-group-item text-white" [ngClass]="{ 'bg-danger': view, 'bg-dark': !view }" role="button" (click)="onView()">View Device</a>
+        <a routerLink="" class="list-group-item bg-dark text-white" role="button" (click)="onLogout()">Logout</a>
+    </div>
+    <div class="col rounded-2 bg-dark p-4">
+        <div *ngIf="!create && !view" class="d-flex flex-column align-items-center justify-content-center" style="height: calc(100vh - 128px);">
+            <h4>Please select from the menu</h4>
+        </div>
+        <router-outlet *ngIf="create || view"></router-outlet>
+    </div>
+</div>
+       -->
+
+
+
+       <div class="row p-4 gap-2">
+        <div class="col-md-2 list-group">
+          <a routerLink="dashboard" class="list-group-item text-white" [ngClass]="{ 'bg-danger': active === 'dashboard', 'bg-dark': active !== 'dashboard' }" role="button" (click)="onDashboard()">
+            hello, {{ username }}
+          </a>
+          <a routerLink="create-device" class="list-group-item text-white" [ngClass]="{ 'bg-danger': active === 'create', 'bg-dark': active !== 'create' }" role="button" (click)="onCreate()">Create Device</a>
+          <a routerLink="view-device" class="list-group-item text-white" [ngClass]="{ 'bg-danger': active === 'view', 'bg-dark': active !== 'view' }" role="button" (click)="onView()">View Device</a>
+          <a routerLink="" class="list-group-item bg-dark text-white" role="button" (click)="onLogout()">Logout</a>
+        </div>
+        <div class="col rounded-2 bg-dark p-4">
+          <div *ngIf="active==='dashboard'" class="d-flex flex-column align-items-center justify-content-center" style="height: calc(100vh - 128px);">
+            <h4>Please select from the menu</h4>
+          </div>
+          <router-outlet *ngIf="active!=='dashboard'"></router-outlet>
+        </div>
+      </div>
+      

@@ -1,0 +1,80 @@
+<div class="d-flex flex-column" style="height: calc(100vh - 128px);">
+    <h4>{{device.deviceName}}</h4>
+    <hr>
+    <form class="form-group" #form="ngForm" (ngSubmit)="onUpdate(form)">
+        <div class="d-flex flex-row-reverse gap-2">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button type="button" class="btn btn-primary" (click)="onBack()">back</button>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 mt-2 g-2" style="overflow-y: auto; height: 355px">
+            <div class="col" *ngFor="let name of featureNames; let i=index">
+                <div class="form-group">
+                    <label for="label" class="form-label">{{featurePlacecholders[i]}}</label>
+                    <input type="text" [name]="name" [class]="InputBox" [value]="device[name]" id="label" ngModel>
+                </div>
+                <!-- <input type="text" [name]="name" [class]="InputBox" [placeholder]="featurePlacecholders[i]" ngModel> -->
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- 
+<div class="d-flex flex-column" style="height: calc(100vh - 128px);">
+    <h4>Update {{device.deviceName}}</h4>
+    <hr>
+    <div class="d-flex flex-row-reverse gap-2">
+        <button type="button" class="btn btn-danger" (click)="onDelete(device.id)">Delete</button>
+        <button type="button" class="btn btn-primary" (click)="onBack()">Back</button>
+    </div>
+    <form class="form-group d-flex gap-3 align-items-center justify-content-center" #form="ngForm" (ngSubmit)="onNext(form)" *ngIf="next">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mt-2 g-2">
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="deviceName" placeholder="Device Name" required [class]="InputBox" ngModel>
+                <input type="text" name="deviceId" placeholder="Device id" required [class]="InputBox" ngModel>
+                <input type="text" name="blocklist" placeholder="Blocklist" required [class]="InputBox" ngModel>
+                <input type="text" name="endPoint" placeholder="Endpoint" required [class]="InputBox" ngModel>
+                <input type="text" name="protocolName" placeholder="Protocol Name" required [class]="InputBox" ngModel>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="account" placeholder="Account" required [class]="InputBox" ngModel>
+                <input type="text" name="userDevice" placeholder="User Device" required [class]="InputBox" ngModel>
+                <input type="text" name="location" placeholder="Location" required [class]="InputBox" ngModel>
+                <input type="text" name="status" placeholder="Status" required [class]="InputBox" ngModel>
+                <input type="text" name="vin" placeholder="VIN" required [class]="InputBox" ngModel>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="serial" placeholder="Serial" required [class]="InputBox" ngModel>
+                <input type="text" name="state" placeholder="State" required [class]="InputBox" ngModel>
+                <input type="text" name="tcuSerial" placeholder="TCU Serial" required [class]="InputBox" ngModel>
+                <input type="text" name="tcuPortNumber" placeholder="TCU Port Number" required [class]="InputBox" ngModel>
+                <button type="submit" class="btn btn-success">Next</button>
+            </div>
+        </div>
+    </form>
+    <form class="form-group d-flex gap-3 align-items-center justify-content-center" #form="ngForm" (ngSubmit)="onUpdate(form)" *ngIf="!next">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 mt-2 g-2">
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="iccid" placeholder="ICCID" required [class]="InputBox" ngModel>
+                <input type="text" name="imfi" placeholder="IMFI" required [class]="InputBox" ngModel>
+                <input type="text" name="mobileNumber" placeholder="Mobile Number" required [class]="InputBox" ngModel>
+                <input type="text" name="deviceConnected" placeholder="Device Connected" required [class]="InputBox" ngModel>
+                <input type="text" name="provisioningState" placeholder="Provisioning State" required [class]="InputBox" ngModel>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="protocolVersion" placeholder="Protocol Version" required [class]="InputBox" ngModel>
+                <input type="text" name="deviceTypeNumber" placeholder="Device Type Number" required [class]="InputBox" ngModel>
+                <input type="text" name="vehicleType" placeholder="Vehicle Type" required [class]="InputBox" ngModel>
+                <input type="text" name="transmissionType" placeholder="Transmission Type" required [class]="InputBox" ngModel>
+                <button type="button" class="btn btn-primary" (click)="onPrevious()">Previous</button>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                <input type="text" name="operatingState" placeholder="Operating State" required [class]="InputBox" ngModel>
+                <input type="text" name="disconnectedType" placeholder="Disconnected Type" required [class]="InputBox" ngModel>
+                <input type="text" name="createdBy" placeholder="Created By" required [class]="InputBox" ngModel>
+                <input type="text" name="updatedBy" placeholder="Updated By" required [class]="InputBox" ngModel>    
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</div> -->

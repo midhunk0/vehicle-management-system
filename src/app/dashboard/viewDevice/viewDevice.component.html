@@ -1,0 +1,32 @@
+<div class="d-flex flex-column" style="height: calc(100vh - 128px);" *ngIf="viewDashboard">
+    <h4>Devices</h4>
+    <hr>
+    <div class="d-flex flex-row-reverse">
+        <div>
+            <input type="text" placeholder="search device" [class]="InputBox" (input)="onSearch()" [(ngModel)]="searchDevice">
+        </div>
+    </div>
+    <div class="d-flex mt-3" style="overflow-y: auto; height: auto;">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Device</th>
+                    <th>View</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let device of devicesAfter; let i=index">
+                <tr>
+                    <th>{{i+1}}</th>
+                    <td>{{device.deviceName}}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="onView(device.id)">View</button></td>
+                    <td><button type="button" class="btn btn-success" (click)="onEdit(device.id)">Edit</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="onDelete(device.id)">Delete</button></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+<router-outlet *ngIf="!viewDashboard"></router-outlet>

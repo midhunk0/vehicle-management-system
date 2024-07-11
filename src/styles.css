@@ -1,0 +1,7 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
